@@ -6,6 +6,8 @@ export const environment = {
   production: false
 };
 
+export const baseUrl='https://reqres.in/api/';
+export const apiUrl='https://reqres.in/api/users/';
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can

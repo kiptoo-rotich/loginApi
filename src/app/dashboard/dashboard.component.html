@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">Home</a>
+    <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">Logout</button>
+</nav>
+<div class="container" id="data" #userData>
+    <div class="row">
+        <div class="col-3">
+            <img src="{{data.avatar}}" alt="">
+        </div>
+        <div class="col-9">
+            <p>
+                Full name: {{data.first_name}} {{data.last_name}}
+            </p>
+            <p>
+                Email: <i>{{data.email}}</i>
+            </p>
+            <p>Latitude: <i>{{current_latitude}}</i></p>
+            <p>Longitude: <i>{{current_longitude}}</i></p>
+        </div>
+    </div>
+</div>
