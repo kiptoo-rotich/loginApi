@@ -23,8 +23,6 @@ ngOnInit() {this.formGroup=new FormGroup({
 } 
 
   data=JSON.parse(localStorage.getItem("User"));
-  current_latitude=JSON.parse(localStorage.getItem("current_latitude"));
-  current_longitude=JSON.parse(localStorage.getItem("current_longitude"));
   updatedUser=JSON.parse(localStorage.getItem("updatedUser"));
 
   deleteUpdates(){

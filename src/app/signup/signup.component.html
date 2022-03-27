@@ -8,24 +8,37 @@
                 <form [formGroup]="formGroup" (ngSubmit)="registerProcess()">
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><img src="./../../assets/icons8-user-50.png" alt=""width="100%"></span>
+                            <span class="input-group-text"><img src="./../../assets/icons8-user-50.png" alt=""
+                                    width="100%" /></span>
                         </div>
-                        <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                        <input type="text" class="form-control" formControlName="email" placeholder="Email" />
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""width="100%"></span>
+                            <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""
+                                    width="100%" /></span>
                         </div>
-                        <input type="password" class="form-control" formControlName="password" placeholder="Password" minlength="8">
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Password" formControlName="password" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType,'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="input-group form-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""width="100%"></span>
+                            <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""
+                                    width="100%" /></span>
                         </div>
-                        <input type="password" class="form-control" formControlName="confirm_password" placeholder="Confirm password" minlength="8">
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Confirm password" formControlName="confirm_password" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>
+                            </span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Signup" class="btn float-right">
+                        <input type="submit" [disabled]="!formGroup.valid" value="Signup" class="btn float-right" />
                     </div>
                 </form>
             </div>

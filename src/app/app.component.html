@@ -3,14 +3,14 @@
 
     </div>
     <div *ngIf="authenticated; else elseBlock">
-        <a class="navbar-brand">Home</a>
+        <a class="navbar-brand" routerLink="home" routerLinkActive='active'>Home</a>
         <a class="navbar-brand" routerLink="list">Users</a>
         <a class="navbar-brand" routerLink="" routerLinkActive='active'>Profile</a>
         <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logout()">Logout</button>
     </div>
     <ng-template #elseBlock>
         <div>
-            <a class="navbar-brand">Login</a>
+            <a class="navbar-brand" routerLink="login" routerLinkActive='active'>Login</a>
         </div>
     </ng-template>
 </nav>

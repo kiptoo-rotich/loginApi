@@ -6,16 +6,15 @@
             </div>
             <div class="col-9">
                 <p>
-                    Name: {{updatedUser.first_name.username}}
+                    Name: <b>{{updatedUser.first_name.username}}</b>
                 </p>
                 <p>
-                    Email: <i>{{updatedUser.data.email}}</i>
+                    Email: <i><b>{{updatedUser.data.email}}</b></i>
                 </p>
                 <p>
-                    Job: <i>{{updatedUser.first_name.job}}</i>
+                    Job: <i><b>{{updatedUser.first_name.job}}</b></i>
                 </p>
-                <p>Latitude: <i>{{current_latitude}}</i></p>
-                <p>Longitude: <i>{{current_longitude}}</i></p>
+
                 <button class="btn btn-md btn-danger mr-2" (click)="deleteUpdates()">Delete updates</button>
                 <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
             </div>
@@ -28,13 +27,11 @@
             </div>
             <div class="col-9">
                 <p>
-                    Full name: {{data.first_name}} {{data.last_name}}
+                    Full name: <b>{{data.first_name}} {{data.last_name}}</b>
                 </p>
                 <p>
-                    Email: <i>{{data.email}}</i>
+                    Email: <i><b>{{data.email}}</b></i>
                 </p>
-                <p>Latitude: <i>{{current_latitude}}</i></p>
-                <p>Longitude: <i>{{current_longitude}}</i></p>
                 <button class="btn btn-md btn-danger mr-2" (click)="deleteUpdates()">Delete updates</button>
                 <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
             </div>

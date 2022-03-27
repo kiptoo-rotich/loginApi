@@ -29,6 +29,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.initForm();
   }
+  
+  fieldTextType: boolean;
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
 
   getLocation() {
     this.toastr.warning(
@@ -65,9 +71,8 @@ export class LoginComponent implements OnInit {
 
   loginProcess() {
     if (this.formGroup.valid) {
-      this.authService.login(this.formGroup.value).subscribe((result) => {
-        console.log(this.formGroup.value.password);
-        if (result.id && result.token) {
+      this.authService.login(this.formGroup.value.email,this.formGroup.value.password).subscribe((result) => {
+        if (result.token) {
           this.authService.userdata(result.id).subscribe((results) => {
             this.getLocation();
             localStorage.setItem("Token", result.token);

@@ -16,10 +16,9 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""width="100%"></span>
                         </div>
-                        <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="close" (click)="toggleData()" *ngIf="toDisplay1"><img src="../../assets/icons8-closed-eye-32.png" alt=""width="80%"></span>
-                            <span class="input-group-text" id="open" (click)="toggleData()" *ngIf="toDisplay"><img src="../../assets/icons8-eye-50.png" alt=""width="80%"></span>
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Password" formControlName="password" />
+                        <div class="input-group-text">
+                            <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType,'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
                         </div>
                     </div>
                     <div class="form-group">
