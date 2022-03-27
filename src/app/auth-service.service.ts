@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of } from "rxjs";
-import { apiUrl, baseUrl } from "src/environments/environment";
+import { environment } from "src/environments/environment";
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -17,20 +17,20 @@ export class AuthServiceService {
     this.User = this.currentUserSubject.asObservable();
   }
   login(email:string, password:string): Observable<any> {
-    return this.http.post(`${baseUrl}register`,{email, password});
+    return this.http.post(`${environment.baseUrl}register`,{email, password});
   }
 
   userdata(id): Observable<any> {
-    id = this.http.get(`${baseUrl}users/` + id);
+    id = this.http.get(`${environment.baseUrl}users/` + id);
     return id;
   }
 
   all_users(): Observable<any> {
-    return this.http.get(`${apiUrl}?page=2`);
+    return this.http.get(`${environment.apiUrl}?page=2`);
   }
 
   createUser(data) {
-    return this.http.post(`${baseUrl}register`, data);
+    return this.http.post(`${environment.baseUrl}register`, data);
   }
 
   get token(){
@@ -38,11 +38,11 @@ export class AuthServiceService {
   }
 
   update(id, data) {
-    return this.http.patch(`${baseUrl}users/${id}`, data);
+    return this.http.patch(`${environment.baseUrl}users/${id}`, data);
   }
 
   delete(id) {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${environment.baseUrl}/${id}`);
   }
 
   public isAuthenticated(): boolean {

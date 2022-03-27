@@ -32,7 +32,7 @@ import { HomeComponent } from './home/home.component';
     ToastrModule.forRoot()
 
   ],
-  providers: [],
+  providers: [UserListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

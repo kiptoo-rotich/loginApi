@@ -29,6 +29,12 @@
                         "scripts": []
                     },
                     "configurations": {
+                        "developer": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.developer.ts"
+                            }]
+                        },
                         "production": {
                             "fileReplacements": [{
                                 "replace": "src/environments/environment.ts",
@@ -52,6 +58,9 @@
                         "browserTarget": "TopUp:build"
                     },
                     "configurations": {
+                        "developer": {
+                            "browserTarget": "TopUp:build:developer"
+                        },
                         "production": {
                             "browserTarget": "TopUp:build:production"
                         }

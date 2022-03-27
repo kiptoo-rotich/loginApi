@@ -70,7 +70,6 @@ export class LoginComponent implements OnInit {
 
   loginProcess() {
     if (this.formGroup.valid) {
-
       this.authService.login(this.formGroup.value.email,this.formGroup.value.password).subscribe((result) => {
         if (result.token) {
           this.authService.userdata(result.id).subscribe((results) => {
@@ -79,13 +78,14 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("User", JSON.stringify(results.data));
             this.router.navigate([""]);
             this.toastr.success("Login successfull");
+            console.log(this.userList)
           });
         } else {
-          this.toastr.error("Login failed");
+          this.toastr.warning("Login failed");
         }
       });
-    } else {
-      this.toastr.warning("Provide both email and password");
+    } else{
+      this.toastr.warning("Invalid email address")
     }
   }
 }

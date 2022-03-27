@@ -21,7 +21,6 @@ export class AppComponent {
     this.toastr.warning("Logged out");
     location.reload()
   }
-
   getLocation() {
     this.toastr.warning(
       "If co-ordinates doesn't show, kindly refresh the page."
