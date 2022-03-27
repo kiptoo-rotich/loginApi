@@ -43,5 +43,6 @@ export class AppComponent {
       this.toastr.warning("Geolocation is not supported by this browser.");
     }
   }
+
  
 }
