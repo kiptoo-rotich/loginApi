@@ -18,7 +18,7 @@
                             <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""
                                     width="100%" /></span>
                         </div>
-                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Password" formControlName="password" />
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Password" formControlName="password" minlength="8" />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType,'fa-eye': fieldTextType}" (click)="toggleFieldTextType()"></i>
@@ -30,7 +30,7 @@
                             <span class="input-group-text"><img src="../../assets/icons8-password-30.png" alt=""
                                     width="100%" /></span>
                         </div>
-                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Confirm password" formControlName="confirm_password" />
+                        <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" placeholder="Confirm password" formControlName="confirm_password" minlength="8" />
                         <div class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fa" [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye': fieldTextType }" (click)="toggleFieldTextType()"></i>

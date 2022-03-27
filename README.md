@@ -8,6 +8,19 @@ This is a simple website that authenticate users,display users current location 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
+## Profile
+![s1](https://user-images.githubusercontent.com/48821300/160299266-e709daf4-e708-42b1-8855-f44588ba2e89.png)
+
+## HomePage
+![s2](https://user-images.githubusercontent.com/48821300/160299284-e8a125de-ffa4-4189-98f5-c8c7325a5e00.png)
+
+## Users
+![s3](https://user-images.githubusercontent.com/48821300/160299303-f2237969-6458-40cb-9101-c239d70efaa6.png)
+
+## Update form
+![s4](https://user-images.githubusercontent.com/48821300/160299322-1165e143-180e-4ae1-b6fd-fdf1d0b9143d.png)
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
