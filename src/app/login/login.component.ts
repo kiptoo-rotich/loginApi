@@ -3,8 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthServiceService } from "../auth-service.service";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
-import { AppComponent } from "../app.component";
-import { stringify } from "querystring";
+import { UserListComponent } from "../user-list/user-list.component";
 
 @Component({
   selector: "app-login",
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthServiceService,
     private router: Router,
     private toastr: ToastrService,
-    private users: AppComponent
+    private userList: UserListComponent
   ) {}
   initForm() {
     this.formGroup = new FormGroup({
@@ -71,6 +70,7 @@ export class LoginComponent implements OnInit {
 
   loginProcess() {
     if (this.formGroup.valid) {
+
       this.authService.login(this.formGroup.value.email,this.formGroup.value.password).subscribe((result) => {
         if (result.token) {
           this.authService.userdata(result.id).subscribe((results) => {

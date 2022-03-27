@@ -19,6 +19,7 @@ export class AppComponent {
   logout(){
     this.authService.logout()
     this.toastr.warning("Logged out");
+    location.reload()
   }
 
   getLocation() {

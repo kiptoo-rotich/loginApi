@@ -3,8 +3,6 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, of } from "rxjs";
 import { apiUrl, baseUrl } from "src/environments/environment";
 import { Router } from "@angular/router";
-import { stringify } from "querystring";
-import { LoginComponent } from "./login/login.component";
 
 @Injectable({
   providedIn: "root",
@@ -62,8 +60,9 @@ export class AuthServiceService {
     localStorage.removeItem("current_longitude");
     localStorage.removeItem("current_latitude");
     localStorage.removeItem("updatedUser");
+    localStorage.removeItem("UsersList");
     this.currentUserSubject.next(null);
-    this.router.navigate(["/login"]);
+    this.router.navigate(["login"]);
   }
 
   autoLogout(expDate: number) {
