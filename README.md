@@ -1,6 +1,12 @@
-# TopUp
+# TopUp Mama Assessment Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+#### Copyright (c) 2021 Kiptoo Rotich
+
+## Description
+
+This is a simple website that authenticate users,display users current location and allow user to update and delete updates.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
 ## Development server
 
@@ -22,6 +28,17 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+### Live Site
+View [live](https://rotich1.github.io/consuming-API/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Technologies Used
+* HTML
+* CSS/Bootstrap4
+* Typescript
+* Git
+## Support and contact details
+Kindly let us know your feedbacks and concerns and you can also ask questions through our email address rotichenoch27@gmail.com.
+
+### License
+This is under the [MIT](LICENSE) license
+
