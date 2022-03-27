@@ -3,11 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl:'https://reqres.in/api/',
+  apiUrl:'https://reqres.in/api/users/',
 };
 
-export const baseUrl='https://reqres.in/api/';
-export const apiUrl='https://reqres.in/api/users/';
+
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
