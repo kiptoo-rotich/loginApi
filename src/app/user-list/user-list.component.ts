@@ -23,6 +23,7 @@ export class UserListComponent implements OnInit {
     this.authService.all_users().subscribe((listing) => {
       if (listing) {
         localStorage.setItem("UsersList", JSON.stringify(listing.data))
+        this.toastr.warning("Kindly refresh page if users didn't display")
       } else {
         this.toastr.warning("No data");
       }
