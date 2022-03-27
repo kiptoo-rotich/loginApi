@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay }   from 'rxjs/operators';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { baseUrl } from 'src/environments/environment';
+import { apiUrl, baseUrl } from 'src/environments/environment';
 import {
   Router, 
 } from '@angular/router';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +27,30 @@ export class AuthServiceService{
     id=this.http.get(`${baseUrl}users/`+id);
     return id;
   }
+
+  all_users():Observable<any>{
+    return this.http.get(`${apiUrl}?page=2`);
+  }
+
+  createUser(data) {
+    return this.http.post(`${baseUrl}register`, data);
+  }
+
+  update(id, data) {
+    return this.http.patch(`${baseUrl}users/${id}`, data);
+  }
   
-  isLoggedIn(){
-    if  (localStorage.getItem('Token')){
-      return true
+  delete(id) {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
+
+  
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('Token');
+    if(token){
+      return true;
     }else{
-      return false
+      return false;
     }
   }
 
@@ -41,6 +59,7 @@ export class AuthServiceService{
     localStorage.removeItem('Token');
     localStorage.removeItem('current_longitude');
     localStorage.removeItem('current_latitude');
+    localStorage.removeItem('updatedUser');
     this.currentUserSubject.next(null);
     this.router.navigate(['/login'])
   }

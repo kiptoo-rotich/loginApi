@@ -24,6 +24,7 @@
         "core-js": "^2.5.4",
         "ngx-toastr": "^10.1.0",
         "rxjs": "~6.0.0",
+        "sweetalert2": "^11.4.7",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {

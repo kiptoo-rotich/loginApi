@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserListComponent } from './user-list/user-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SignupComponent,
     DashboardComponent,
     NotFoundComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,

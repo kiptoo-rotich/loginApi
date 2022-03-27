@@ -1,21 +1,68 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">Home</a>
-    <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">Logout</button>
-</nav>
-<div class="container" id="data" #userData>
-    <div class="row">
-        <div class="col-3">
-            <img src="{{data.avatar}}" alt="">
+<div class="container mt-5" id="data" #userData>
+    <div *ngIf="updatedUser; else elseBlock">
+        <div class="row">
+            <div class="col-3">
+                <img src="{{updatedUser.data.avatar}}" alt="" width="100%" height="100%">
+            </div>
+            <div class="col-9">
+                <p>
+                    Name: {{updatedUser.first_name.username}}
+                </p>
+                <p>
+                    Email: <i>{{updatedUser.data.email}}</i>
+                </p>
+                <p>
+                    Job: <i>{{updatedUser.first_name.job}}</i>
+                </p>
+                <p>Latitude: <i>{{current_latitude}}</i></p>
+                <p>Longitude: <i>{{current_longitude}}</i></p>
+                <button class="btn btn-md btn-danger mr-2" (click)="deleteUpdates()">Delete updates</button>
+                <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+            </div>
         </div>
-        <div class="col-9">
-            <p>
-                Full name: {{data.first_name}} {{data.last_name}}
-            </p>
-            <p>
-                Email: <i>{{data.email}}</i>
-            </p>
-            <p>Latitude: <i>{{current_latitude}}</i></p>
-            <p>Longitude: <i>{{current_longitude}}</i></p>
+    </div>
+    <ng-template #elseBlock>
+        <div class="row">
+            <div class="col-3">
+                <img src="{{data.avatar}}" alt="" width="100%" height="100%">
+            </div>
+            <div class="col-9">
+                <p>
+                    Full name: {{data.first_name}} {{data.last_name}}
+                </p>
+                <p>
+                    Email: <i>{{data.email}}</i>
+                </p>
+                <p>Latitude: <i>{{current_latitude}}</i></p>
+                <p>Longitude: <i>{{current_longitude}}</i></p>
+                <button class="btn btn-md btn-danger mr-2" (click)="deleteUpdates()">Delete updates</button>
+                <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Update</button>
+            </div>
+        </div>
+    </ng-template>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Update profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <form [formGroup]="formGroup" (ngSubmit)="updateProfile()">
+
+                    <div class="modal-body">
+                        <input type="text" class="form-control" formControlName="username" placeholder="Name" required>
+                        <input type="text" class="form-control mt-2" formControlName="job" placeholder="Job" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

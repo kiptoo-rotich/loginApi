@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tr *ngFor="let item of UsersList;">
+                <th scope="row">{{item.id}}</th>
+                <td><img src="{{item.avatar}}" alt="" width="20%" height="20%"></td>
+                <td>{{item.first_name}}</td>
+                <td>{{item.last_name}}</td>
+                <td>{{item.email}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
