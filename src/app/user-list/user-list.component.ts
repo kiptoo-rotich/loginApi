@@ -1,6 +1,8 @@
+import { combineLatest, forkJoin } from 'rxjs';
 import { Component, OnInit } from "@angular/core";
 import { AuthServiceService } from "../auth-service.service";
 import { ToastrService } from "ngx-toastr";
+
 
 @Component({
   selector: "app-user-list",
@@ -13,6 +15,9 @@ export class UserListComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
+    totalLength:any;
+    page:number;
+
   ngOnInit() {
     this.usersList();
   }
@@ -22,11 +27,14 @@ export class UserListComponent implements OnInit {
   usersList() {
     this.authService.all_users().subscribe((listing) => {
       if (listing) {
-        localStorage.setItem("UsersList", JSON.stringify(listing.data))
-        this.toastr.warning("Kindly refresh page if users didn't display")
+        let list=listing[1].data.concat(listing[0].data)
+        this.totalLength=list.length;
+        localStorage.setItem("UsersList", JSON.stringify(list))
+        // this.toastr.warning("Kindly refresh page if users didn't display")
       } else {
         this.toastr.warning("No data");
       }
     });
   }
+
 }

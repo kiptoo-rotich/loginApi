@@ -1,12 +1,22 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, of } from "rxjs";
+import { BehaviorSubject, forkJoin, Observable, of } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Router } from "@angular/router";
+
+export interface AuthResponseData {
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: boolean;
+}
 
 @Injectable({
   providedIn: "root",
 })
+
 export class AuthServiceService {
   private currentUserSubject: BehaviorSubject<any>;
   public User: Observable<any>;
@@ -26,7 +36,10 @@ export class AuthServiceService {
   }
 
   all_users(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}?page=2`);
+    let data1$=this.http.get(`${environment.apiUrl}?page=1`)
+    let data$=this.http.get(`${environment.apiUrl}?page=2`)
+    let final_data$=forkJoin(data$,data1$)
+    return final_data$;
   }
 
   createUser(data) {
@@ -63,6 +76,13 @@ export class AuthServiceService {
     localStorage.removeItem("UsersList");
     this.currentUserSubject.next(null);
     this.router.navigate(["login"]);
+  }
+
+  private handleUser(response: AuthResponseData) {
+    const expireDate = new Date(
+      new Date().getTime() + +response.expiresIn * 1000
+    );
+    this.autoLogout(+response.expiresIn * 1000);
   }
 
   autoLogout(expDate: number) {

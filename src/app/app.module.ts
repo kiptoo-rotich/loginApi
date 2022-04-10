@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
     ToastrModule.forRoot()
 
   ],
